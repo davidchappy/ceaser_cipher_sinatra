@@ -1,10 +1,82 @@
 <html>
-  <head></head>
+  <head>
+    <title>Ceaser Cipher</title>
+    <style>
+      body {
+        background: #F5A623;
+        color: #324654;
+        font-size: 16px;
+        font-family: helvetica;
+      }
+
+      h1 {
+        color: #4A4A4A;
+      }
+
+      label {
+        margin-bottom: 0.2em;
+      }
+
+      input {
+        border-radius: 2px;
+        border:none;
+        display: block;
+        padding: 0.5em;
+      }
+
+      input[name="phrase"] {
+        width: 20em;
+      }
+
+      input[name="offset"] {
+        width: 5em;
+      }
+
+      input[type="submit"] {
+        color: #fff;
+        text-transform: uppercase;
+        background: #4A4A4A;
+        cursor: pointer;
+        padding: 1em;
+      }
+
+      input[type="submit"]:hover {
+        background:#9B9B9B; 
+      }
+
+      label {
+        display: block;
+        padding-right: 1em;
+      }
+
+      .cipher {
+        color: #417505;
+      }
+
+    </style>
+  </head>
   <body>
-    <h1>Ceaser Cipher</h1>
-    <p>
-      <%= message %>
-    </p>
+    <h1>Welcome to Ceaser Cipher</h1>
+    <p>Type in any text and an optional numerical offset. You will see a ciphered version of your message.</p>
+
+    <% unless ciphered == "" || ciphered.nil? %>
+      <% if ciphered == "Please type a phrase below" %>
+        <p><%= ciphered %></p>
+      <% else %>
+        <p>Your cipher: <strong class="cipher">"<%= ciphered %>"</strong></p>
+      <% end %>
+    <% end %>
+
+    <form action="">
+        <label for="phrase">Phrase</label>
+        <input type="text" name="phrase"/><br> 
+        <label for="offset">Offset (positive or negative numerical value)</label>
+        <input type="text" name="offset"/><br>
+      <input type="submit" value="Cipher This">
+    </form>
+
+
+
   </body>
 
 </html>
